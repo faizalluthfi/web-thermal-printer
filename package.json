@@ -1,0 +1,26 @@
+{
+  "name": "web-thermal-printer",
+  "version": "0.0.0",
+  "description": "Simply adds thermal printer support to any web application",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/faizalluthfi/web-thermal-printer.git"
+  },
+  "keywords": [
+    "thermal-printer",
+    "nodejs",
+    "electron",
+    "javascript",
+    "node-thermal-printer"
+  ],
+  "author": "Faizal Luthfi <zalluth@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/faizalluthfi/web-thermal-printer/issues"
+  },
+  "homepage": "https://github.com/faizalluthfi/web-thermal-printer#readme"
+}
