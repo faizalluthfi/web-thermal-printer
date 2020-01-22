@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/faizalluthfi/web-thermal-printer/issues"
   },
-  "homepage": "https://github.com/faizalluthfi/web-thermal-printer#readme"
+  "homepage": "https://github.com/faizalluthfi/web-thermal-printer#readme",
+  "devDependencies": {
+    "electron": "^7.1.9"
+  }
 }
