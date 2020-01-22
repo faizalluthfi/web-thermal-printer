@@ -25,5 +25,8 @@
   "homepage": "https://github.com/faizalluthfi/web-thermal-printer#readme",
   "devDependencies": {
     "electron": "^7.1.9"
+  },
+  "dependencies": {
+    "node-thermal-printer": "^4.1.2"
   }
 }
