@@ -1,3 +1,3 @@
 [submodule "angular"]
 	path = angular
-	url = git@github.com:faizalluthfi/web-thermal-printer-angular.git
+	url = https://github.com/faizalluthfi/web-thermal-printer-angular.git
