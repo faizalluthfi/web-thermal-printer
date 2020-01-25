@@ -5,6 +5,8 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "build": "electron-builder --publish always -l --x64",
+    "buildforwindows": "electron-builder --publish always -w --x64 --ia32",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "build": {
