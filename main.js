@@ -1,4 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
+const { autoUpdater } = require('electron-updater');
+
+const log = require('electron-log');
 
 const ThermalPrinter = require('node-thermal-printer').printer;
 const PrinterTypes = require('node-thermal-printer').types;
@@ -39,9 +42,18 @@ ipcMain.on('test-printer', (event, arg) => {
   event.returnValue = true;
 });
 
+autoUpdater.logger = log;
+autoUpdater.logger['transports'].file.level = 'info';
+ipcMain.on('apply-update', (e, arg) => {
+  autoUpdater.quitAndInstall();
+});
+
 let win;
 
 app.on('ready', () => {
+  // Global variables
+  global['autoUpdater'] = autoUpdater;
+
   win = new BrowserWindow({
     webPreferences: {
       nodeIntegration: true
