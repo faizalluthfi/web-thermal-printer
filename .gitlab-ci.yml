@@ -1,0 +1,20 @@
+build:
+  variables:
+    GIT_SUBMODULE_STRATEGY: recursive
+  image: electronuserland/builder:wine
+  stage: build
+  script:
+    - cd angular
+    - npm install
+    - npm run build
+    - cd ..
+    - npm install
+    - npm run build
+    - npm run buildforwindows
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - angular/node_modules/
+  only:
+    - master
