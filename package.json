@@ -7,6 +7,34 @@
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "build": {
+    "publish": [
+      "github"
+    ],
+    "appId": "com.faizalluthfi.web-thermal-printer",
+    "files": [
+      "**/*",
+      "!dev-app-update.yml",
+      "!angular",
+      "!/logo.png"
+    ],
+    "appImage": {
+      "artifactName": "${name}.${ext}"
+    },
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage"
+        }
+      ],
+      "icon": "assets/icons/png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icons/icon.ico",
+      "artifactName": "${name}_setup_${version}.${ext}"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/faizalluthfi/web-thermal-printer.git"
