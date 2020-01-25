@@ -4,6 +4,7 @@
   "description": "Simply adds thermal printer support to any web application",
   "main": "main.js",
   "scripts": {
+    "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
