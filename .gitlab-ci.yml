@@ -9,8 +9,8 @@ build:
     - npm run build
     - cd ..
     - npm install
-    - npm run build
-    - npm run buildforwindows
+    - GH_TOKEN=$GH_TOKEN npm run build
+    - GH_TOKEN=$GH_TOKEN npm run buildforwindows
   cache:
     key: ${CI_COMMIT_REF_SLUG}
     paths:
