@@ -6,6 +6,8 @@ const log = require('electron-log');
 const ThermalPrinter = require('node-thermal-printer').printer;
 const PrinterTypes = require('node-thermal-printer').types;
 
+const packageJson = require('./package.json');
+
 let printerPort;
 let printer = new ThermalPrinter({ type: PrinterTypes.EPSON });
 let initPrinter = port => {
@@ -54,6 +56,7 @@ let win;
 app.on('ready', () => {
   // Global variables
   global['autoUpdater'] = autoUpdater;
+  global['packageJson'] = packageJson;
 
   win = new BrowserWindow({
     webPreferences: {
