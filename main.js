@@ -1,4 +1,43 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+
+const ThermalPrinter = require('node-thermal-printer').printer;
+const PrinterTypes = require('node-thermal-printer').types;
+
+let printerPort;
+let printer = new ThermalPrinter({ type: PrinterTypes.EPSON });
+let initPrinter = port => {
+  if (port != printerPort) {
+    printerPort = port;
+    printer = new ThermalPrinter({
+      type: PrinterTypes.EPSON,
+      interface: port
+    });
+  }
+};
+let printNote = note => {
+  printer.clear();
+  printer.println(note);
+  printer.cut();
+  if (printerPort) {
+    try {
+      printer.execute();
+      win.webContents.send('print-success');
+      console.log('Print done');
+    } catch (error) {
+      console.log('Print failed');
+    }
+  } else {
+    win.webContents.send('no-printer-port');
+  }
+};
+ipcMain.on('init-printer', (_e, arg) => initPrinter(arg));
+ipcMain.on('test-printer', (event, arg) => {
+  let oldPort = printerPort;
+  initPrinter(arg.printerPath);
+  printNote('Print berhasil');
+  initPrinter(oldPort);
+  event.returnValue = true;
+});
 
 let win;
 
