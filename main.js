@@ -41,6 +41,7 @@ ipcMain.on('test-printer', (event, arg) => {
   initPrinter(oldPort);
   event.returnValue = true;
 });
+ipcMain.on('print-note', (_e, arg) => printNote(arg));
 
 autoUpdater.logger = log;
 autoUpdater.logger['transports'].file.level = 'info';
